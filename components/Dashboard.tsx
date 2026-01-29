@@ -60,7 +60,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ onBack }) => {
         assessment: 0,
         routine: 0,
         intention: 0,
-        intention: 0,
         audio_message: 0,
         transition: 0
       } as Record<string, number>,
