@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guia Quaresmal 2026</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['"Crimson Text"', 'serif'], // Corpo do texto agora é serifado (estilo livro)
-              serif: ['Cinzel', 'serif'], // Títulos em estilo romano
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia Quaresmal 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Crimson Text"', 'serif'], // Corpo do texto agora é serifado (estilo livro)
+            serif: ['Cinzel', 'serif'], // Títulos em estilo romano
+          },
+          backgroundImage: {
+            'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+          },
+          colors: {
+            paper: {
+              50: '#FDFBF7',
+              100: '#F7F3E8',
+              200: '#EBE2CD',
+              300: '#DECFA8',
             },
-            backgroundImage: {
-              'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+            stone: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              800: '#292524',
+              900: '#1c1917',
             },
-            colors: {
-              paper: {
-                50: '#FDFBF7',
-                100: '#F7F3E8',
-                200: '#EBE2CD',
-                300: '#DECFA8',
-              },
-              stone: {
-                50: '#fafaf9',
-                100: '#f5f5f4',
-                800: '#292524',
-                900: '#1c1917',
-              },
-              purple: {
-                700: '#4c1d95',
-                800: '#3D0C59', // Roxo mais profundo
-                900: '#24043A', // Quase preto, solene
-              },
-              gold: {
-                400: '#EBCB8B',
-                500: '#D08770', // Cobre/Ouro envelhecido
-                600: '#B48EAD',
-                700: '#A37E2C', // Ouro clássico
-                800: '#856404',
-              },
-              red: {
-                900: '#4A0404', // Sangue de Cristo
-              }
+            purple: {
+              700: '#4c1d95',
+              800: '#3D0C59', // Roxo mais profundo
+              900: '#24043A', // Quase preto, solene
+            },
+            gold: {
+              400: '#EBCB8B',
+              500: '#D08770', // Cobre/Ouro envelhecido
+              600: '#B48EAD',
+              700: '#A37E2C', // Ouro clássico
+              800: '#856404',
+            },
+            red: {
+              900: '#4A0404', // Sangue de Cristo
             }
           }
         }
       }
-    </script>
+    }
+  </script>
   <script type="importmap">
 {
   "imports": {
@@ -66,10 +69,34 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1253862396600213');
+    fbq('track', 'PageView');
+  </script>
+
+  <!-- End Meta Pixel Code -->
+
 </head>
-  <body class="bg-paper-100 text-stone-900 antialiased selection:bg-gold-700 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body class="bg-paper-100 text-stone-900 antialiased selection:bg-gold-700 selection:text-white">
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1253862396600213&ev=PageView&noscript=1" /></noscript>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
