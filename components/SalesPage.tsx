@@ -49,10 +49,18 @@ export const SalesPage: React.FC<SalesPageProps> = ({ userName }) => {
 
   const testimonials = [
     {
-      type: 'video',
-      name: 'Mariana S.',
-      label: 'Recuperei minha vida de oração',
-      img: 'https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?auto=format&fit=crop&q=80&w=600'
+      type: 'embed',
+      name: 'Depoimento 1',
+      embedCode: '<div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/581553/5f6b682f-cbbd-4371-917f-60ffeb1c1b81?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>'
+    },
+    {
+      type: 'embed',
+      name: 'Depoimento 2',
+      embedCode: '<div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/581553/9582125d-1775-415b-bc21-fb677d0e6d2a?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>'
+    },
+    {
+      type: 'image',
+      img: 'https://i.ibb.co/6JVWhrN9/depoimentos-1.png'
     },
     {
       type: 'text',
@@ -66,12 +74,6 @@ export const SalesPage: React.FC<SalesPageProps> = ({ userName }) => {
       source: 'WhatsApp',
       text: 'Padre, o guia de confissão é incrível. Nunca tinha me confessado com tanta clareza. Obrigado!',
       time: '14:30'
-    },
-    {
-      type: 'video',
-      name: 'Carlos M.',
-      label: 'Encontrei disciplina',
-      img: 'https://images.unsplash.com/photo-1509059852496-f382216640f0?auto=format&fit=crop&q=80&w=600'
     }
   ];
 
@@ -353,9 +355,18 @@ export const SalesPage: React.FC<SalesPageProps> = ({ userName }) => {
                   transition={{ duration: 0.4 }}
                   className="w-full max-w-2xl px-2 md:px-8"
                 >
-                  {testimonials[currentTestimonial].type === 'video' ? (
+                  {testimonials[currentTestimonial].type === 'embed' ? (
+                    // @ts-ignore
+                    <div className="w-full max-w-3xl mx-auto shadow-2xl rounded-sm overflow-hidden border-4 border-white bg-black" dangerouslySetInnerHTML={{ __html: testimonials[currentTestimonial].embedCode }} />
+                  ) : testimonials[currentTestimonial].type === 'image' ? (
+                    <div className="w-full max-w-[340px] md:max-w-md mx-auto shadow-xl rounded-sm overflow-hidden bg-white p-2 md:p-3 transform hover:scale-[1.02] transition-transform duration-300">
+                      {/* @ts-ignore */}
+                      <img src={testimonials[currentTestimonial].img} alt="Testimonial" className="w-full h-auto rounded-sm border border-stone-100" />
+                    </div>
+                  ) : testimonials[currentTestimonial].type === 'video' ? (
                     <div className="bg-stone-900 rounded-sm aspect-[16/9] md:aspect-[21/9] relative group overflow-hidden shadow-2xl border-4 border-white mx-auto max-w-xl">
                       <img
+                        // @ts-ignore
                         src={testimonials[currentTestimonial].img}
                         alt="Video thumbnail"
                         className="w-full h-full object-cover opacity-60"
@@ -367,6 +378,7 @@ export const SalesPage: React.FC<SalesPageProps> = ({ userName }) => {
                       </div>
                       <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 bg-gradient-to-t from-black/90 to-transparent text-left">
                         <p className="text-white font-serif font-bold text-base md:text-lg">{testimonials[currentTestimonial].name}</p>
+                        {/* @ts-ignore */}
                         <p className="text-stone-300 text-xs md:text-sm font-sans italic">"{testimonials[currentTestimonial].label}"</p>
                       </div>
                     </div>
@@ -378,10 +390,11 @@ export const SalesPage: React.FC<SalesPageProps> = ({ userName }) => {
                       </p>
                       <div className="flex items-center justify-center gap-2">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-purple-900 rounded-full flex items-center justify-center font-serif font-bold text-white text-xs md:text-sm">
-                          {testimonials[currentTestimonial].name ? testimonials[currentTestimonial].name.charAt(0) : ''}
+                          {testimonials[currentTestimonial].name ? testimonials[currentTestimonial].name!.charAt(0) : ''}
                         </div>
                         <div className="text-left">
                           <div className="font-bold text-sm md:text-base text-stone-900">{testimonials[currentTestimonial].name}</div>
+                          {/* @ts-ignore */}
                           <div className="text-[10px] md:text-xs text-stone-500 font-bold uppercase tracking-wider">{testimonials[currentTestimonial].source}</div>
                         </div>
                       </div>
@@ -400,6 +413,7 @@ export const SalesPage: React.FC<SalesPageProps> = ({ userName }) => {
                         {testimonials[currentTestimonial].text}
                         <div className="absolute top-0 left-[-8px] w-0 h-0 border-t-[10px] border-t-green-50 border-l-[10px] border-l-transparent"></div>
                       </div>
+                      {/* @ts-ignore */}
                       <div className="text-right text-[10px] text-stone-400">Enviado às {testimonials[currentTestimonial].time}</div>
                     </div>
                   )}
