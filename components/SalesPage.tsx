@@ -103,7 +103,7 @@ export const SalesPage: React.FC<SalesPageProps> = ({ userName }) => {
 
   const handleBuyClick = () => {
     trackCheckout();
-    window.location.href = 'https://pay.kirvano.com/0af5e645-151e-4e5c-a1a4-f509cdb6caae';
+    window.location.href = 'https://pay.kiwify.com.br/xsqvXy0';
   };
 
   const Divider = () => (
